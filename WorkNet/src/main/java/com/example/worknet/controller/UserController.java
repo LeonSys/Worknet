@@ -10,7 +10,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
-    // standard constructors
 
     private final UserRepository userRepository;
 
@@ -27,4 +26,6 @@ public class UserController {
     void addUser(@RequestBody User user) {
         userRepository.save(user);
     }
+
+
 }
