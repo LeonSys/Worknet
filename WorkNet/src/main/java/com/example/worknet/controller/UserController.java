@@ -1,5 +1,7 @@
-package com.example.worknet;
+package com.example.worknet.controller;
 
+import com.example.worknet.repository.UserRepository;
+import com.example.worknet.model.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

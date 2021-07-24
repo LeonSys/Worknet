@@ -1,5 +1,6 @@
-package com.example.worknet;
+package com.example.worknet.repository;
 
+import com.example.worknet.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
