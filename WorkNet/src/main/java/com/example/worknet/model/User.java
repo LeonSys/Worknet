@@ -16,17 +16,19 @@ public class User {
     @Column(name="email")
     private String email;
 
-    @Column(nullable = false, length = 64)
+    @Column(name = "password", nullable = false, length = 64)
     private String password;
 
-    @Column(nullable = false, length = 64)
+    @Column(name = "username", nullable = false, length = 64)
     private String username;
 
     public User() {}
 
-    public User(String name, String email) {
+    public User(String name, String email, String username, String password) {
         this.name = name;
         this.email = email;
+        this.username = username;
+        this.password = password;
     }
 
 
