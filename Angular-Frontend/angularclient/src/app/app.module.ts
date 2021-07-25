@@ -10,6 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import {HttpInterceptorService} from "./BasicAuthInterceptor";
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -19,7 +20,8 @@ import {HttpInterceptorService} from "./BasicAuthInterceptor";
     UserListComponent,
     UserFormComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
