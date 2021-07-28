@@ -1,42 +1,74 @@
 package com.example.worknet.model;
 
-import javax.persistence.*;
+import com.example.worknet.validation.annotation.ValidEmail;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
+
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
 @Entity
-@Table(name = "user")
+@Table(name = "user", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "email")
+})
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="name")
+    //@NotBlank
+    @Size(max = 20)
     private String name;
 
-    @Column(name="email")
+    @NotBlank
+    @Size(max = 20)
+    @ValidEmail
     private String email;
 
-    @Column(name = "password", nullable = false, length = 64)
+    @NotBlank
+    //@Size(max = 20)
+    @JsonIgnore
+    @Lob
     private String password;
 
-    @Column(name = "username", nullable = false, length = 64)
+    @NotBlank
+    @Size(max = 20)
     private String username;
 
-    public User() {}
-
-    public User(String name, String email, String username, String password) {
-        this.name = name;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-    }
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "users_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
+    private Set<Role> roles = new HashSet<>();
 
 
-    public long getId() {
+
+//    public User( String email, String username, String password) {
+//        this.email = email;
+//        this.username = username;
+//        this.password = password;
+//    }
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,7 +88,6 @@ public class User {
         this.email = email;
     }
 
-
     public String getPassword() {
         return password;
     }
@@ -71,5 +102,13 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
