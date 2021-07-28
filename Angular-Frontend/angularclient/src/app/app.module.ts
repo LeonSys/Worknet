@@ -7,10 +7,8 @@ import { AppComponent } from 'src/app/app.component';
 import { UserListComponent } from 'src/app/user-list/user-list.component';
 import { UserFormComponent } from 'src/app/user-form/user-form.component';
 import { UserService } from 'src/app/service/user.service';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import {HttpInterceptorService} from "./BasicAuthInterceptor";
-import { NavbarComponent } from './navbar/navbar.component';
+
+
 
 
 
@@ -18,10 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     AppComponent,
     UserListComponent,
-    UserFormComponent,
-    LoginComponent,
-    LogoutComponent,
-    NavbarComponent
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
@@ -29,12 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [ {
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpInterceptorService,
-    multi: true,
-
-  },UserService],
+  providers: [ UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

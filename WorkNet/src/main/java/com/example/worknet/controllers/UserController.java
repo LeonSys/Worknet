@@ -1,4 +1,4 @@
-package com.example.worknet.controller;
+package com.example.worknet.controllers;
 
 import com.example.worknet.repository.UserRepository;
 import com.example.worknet.model.User;
