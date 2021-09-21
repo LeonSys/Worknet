@@ -11,6 +11,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import {AddTaskComponent} from "./components/add-task/add-task.component";
 import {TaskDetailsComponent} from "./components/task-details/task-details.component";
 import {TasksListComponent} from "./components/tasks-list/tasks-list.component";
+import {UserListComponent} from "./components/user-list/user-list.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksListComponent },
   { path: 'tasks/:id', component: TaskDetailsComponent },
   { path: 'addTask', component: AddTaskComponent },
+  { path: 'listOfTheUsers', component: UserListComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
 ];

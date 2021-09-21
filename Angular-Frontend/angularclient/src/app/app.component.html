@@ -1,5 +1,5 @@
 
-<div id="app">
+
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">WorkNet</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
@@ -21,6 +21,10 @@
       <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
       </li>
+      <li class="nav-item">
+        <a routerLink="listOfTheUsers" class="nav-link">List of Users</a>
+      </li>
+
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
@@ -42,7 +46,7 @@
     </ul>
   </nav>
 
-  <div class="container">
+
     <router-outlet></router-outlet>
-  </div>
-</div>
+
+

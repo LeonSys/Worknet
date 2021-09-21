@@ -1,9 +1,7 @@
 package com.example.worknet.controllers;
 
-import com.example.worknet.model.Project;
 import com.example.worknet.model.Task;
 import com.example.worknet.repository.TaskRepository;
-import com.example.worknet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -41,22 +39,6 @@ public class TestController {
     @PreAuthorize("hasRole('ADMIN')")
     public String adminAccess() {
         return "Admin Board.";
-    }
-
-    @PostMapping("/task")
-    public String createTask() {
-
-         Task task = Task.builder()
-                .name("lofasz")
-                .assignedUser("Lajoska")
-                .status("Started")
-                .priority("low")
-                 .description("TESTING THIS SHIT")
-                .build();
-
-        taskRepository.save(task);
-
-        return "Task succesfully created";
     }
 
 }

@@ -17,6 +17,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { TasksListComponent } from './components/tasks-list/tasks-list.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 
 
@@ -32,7 +33,8 @@ import { TasksListComponent } from './components/tasks-list/tasks-list.component
     BoardUserComponent,
     AddTaskComponent,
     TaskDetailsComponent,
-    TasksListComponent
+    TasksListComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
