@@ -14,6 +14,11 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { TasksListComponent } from './components/tasks-list/tasks-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    AddTaskComponent,
+    TaskDetailsComponent,
+    TasksListComponent
   ],
   imports: [
     BrowserModule,

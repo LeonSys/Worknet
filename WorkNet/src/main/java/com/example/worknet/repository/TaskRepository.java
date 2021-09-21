@@ -14,6 +14,8 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
     Boolean existsByname(String taskname);
 
+    List<Task> findByNameContaining(String name);
+
    // List<Task> findall();
 
 }

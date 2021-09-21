@@ -18,7 +18,7 @@ import java.util.Set;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Data
 @Builder
 @Entity
@@ -56,8 +56,32 @@ public class Task {
 
     private String assignedUser;
 
+    public Task(long id, String name, String priority, String description, String status, Date deadline, String assignedUser) {
+        this.id = id;
+        this.name = name;
+        this.priority = priority;
+        this.description = description;
+        this.status = status;
+        this.deadline = deadline;
+        this.assignedUser = assignedUser;
+    }
 
-   /* @ManyToMany(fetch = FetchType.LAZY)
+
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", priority='" + priority + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", deadline=" + deadline +
+                ", assignedUser='" + assignedUser + '\'' +
+                '}';
+    }
+
+/* @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
