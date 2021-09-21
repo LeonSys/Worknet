@@ -60,7 +60,7 @@ export class TasksListComponent implements OnInit {
     this.currentTask = {};
     this.currentIndex = -1;
 
-    this.taskService.findByName(this.tasks)
+    this.taskService.findByName(this.name)
       .subscribe(
         data => {
           this.tasks = data;

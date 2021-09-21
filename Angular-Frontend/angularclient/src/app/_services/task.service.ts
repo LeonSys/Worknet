@@ -36,6 +36,9 @@ export class TaskService {
     return this.http.delete(baseUrl);
   }
 
+  // findByName(name: any): Observable<Task[]> {
+  //   return this.http.get<Task[]>(`${baseUrl}`);
+  // }
   findByName(name: any): Observable<Task[]> {
     return this.http.get<Task[]>(`${baseUrl}?name=${name}`);
   }
