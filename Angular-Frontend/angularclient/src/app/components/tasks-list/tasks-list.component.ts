@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from "../../models/task.model";
 import {TaskService} from "../../_services/task.service";
+import {TokenStorageService} from "../../_services/token-storage.service";
 
 @Component({
   selector: 'app-tasks-list',
@@ -8,6 +9,11 @@ import {TaskService} from "../../_services/task.service";
   styleUrls: ['./tasks-list.component.css']
 })
 export class TasksListComponent implements OnInit {
+  private roles: string[] = [];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+
 
 
   tasks?: Task[];
@@ -15,10 +21,23 @@ export class TasksListComponent implements OnInit {
   currentIndex = -1;
   name = '';
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.retrieveTasks();
+
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+
+      this.name = user.name;
+    }
+
   }
 
   retrieveTasks(): void {

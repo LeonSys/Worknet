@@ -56,9 +56,8 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    public ResponseEntity<Task> createTutorial(@RequestBody Task task) {
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
         try {
-
 
             Task _task = taskRepository
                     .save(Task.builder()

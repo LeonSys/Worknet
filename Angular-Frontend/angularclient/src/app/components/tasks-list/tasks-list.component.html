@@ -31,7 +31,7 @@
       </li>
     </ul>
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTasks()">
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTasks()" *ngIf="showModeratorBoard">
       Remove All
     </button>
   </div>
@@ -45,13 +45,26 @@
         <label><strong>Description:</strong></label>
         {{ currentTask.description }}
       </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentTask.status }}
+      </div>
+      <div>
+        <label><strong>Priority:</strong></label>
+        {{ currentTask.priority }}
+      </div>
+      <div>
+        <label><strong>Assigned User:</strong></label>
+        {{ currentTask.assignedUser }}
+      </div>
 
 
 
 
-      <a class="badge badge-warning" routerLink="/tasks/{{ currentTask.id }}">
+      <a class="badge badge-warning" routerLink="/tasks/{{ currentTask.id }} " *ngIf="showModeratorBoard" >
         Edit
       </a>
+
     </div>
 
     <div *ngIf="!currentTask">

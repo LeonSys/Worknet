@@ -12,4 +12,12 @@ import java.util.Optional;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
+
+
+    Optional<Project> findByName(String projectname);
+
+    Boolean existsByname(String projectname);
+
+    List<Project> findByNameContaining(String name);
+
 }

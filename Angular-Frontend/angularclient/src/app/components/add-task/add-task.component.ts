@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from "../../models/task.model";
 import {TaskService} from "../../_services/task.service";
 import {Observable} from "rxjs";
+import {UserService} from "../../_services/user.service";
+import {User} from "../../models/user.model";
+import {AppComponent} from "../../app.component";
 
 
 
@@ -22,9 +25,13 @@ export class AddTaskComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,private  userService: UserService) { }
 
   //taskStatusOptions: Observable<TaskCategories>;
+
+
+  users?: User[];
+
 
   saveTask(): void {
     const data = {
@@ -47,6 +54,19 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.retrieveUsers();
+  }
+
+  retrieveUsers(): void {
+    this.userService.getAll()
+      .subscribe(
+        data => {
+          this.users = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
   newTask(): void {

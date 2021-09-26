@@ -3,26 +3,29 @@
   <nav class="navbar navbar-expand navbar-dark bg-dark">
     <a href="#" class="navbar-brand">WorkNet</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="addProject">Create project</a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a href="/admin" class="nav-link" routerLink="addTask">Create task</a>
       </li>
       <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+        <a href="/mod" class="nav-link" routerLink="addTask">Create task</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="tasks" class="nav-link">Tasks</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="addTask" class="nav-link">Add Task</a>
-      </li>
-      <li class="nav-item">
+     <!---  <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
-      <li class="nav-item">
+      </li> ---->
+
+      <li class="nav-item" *ngIf="isLoggedIn">
         <a routerLink="listOfTheUsers" class="nav-link">List of Users</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a routerLink="listOfTheProjects" class="nav-link">List of projects</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a routerLink="tasks" class="nav-link">Tasks</a>
       </li>
 
     </ul>

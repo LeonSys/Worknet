@@ -47,7 +47,6 @@ public class Task {
     @Size(max = 200)
     private String description;
 
-    @NotBlank
     @Size(max = 20)
     private String status;
 

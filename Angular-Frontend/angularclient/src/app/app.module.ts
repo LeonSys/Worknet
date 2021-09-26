@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,8 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { TasksListComponent } from './components/tasks-list/tasks-list.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { AddProjectComponent } from './components/add-project/add-project.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 
 
@@ -34,12 +36,15 @@ import { UserListComponent } from './components/user-list/user-list.component';
     AddTaskComponent,
     TaskDetailsComponent,
     TasksListComponent,
-    UserListComponent
+    UserListComponent,
+    AddProjectComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [authInterceptorProviders],
