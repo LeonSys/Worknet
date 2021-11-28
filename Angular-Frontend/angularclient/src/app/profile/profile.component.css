@@ -1,0 +1,223 @@
+.profile-head {
+  transform: translateY(5rem)
+}
+
+.cover {
+  background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+body {
+  background: #654ea3;
+  background: linear-gradient(to right, #e96443, #904e95);
+  min-height: 100vh;
+  overflow-x: hidden
+}
+
+.fasz{
+  background-image: url("src/app/Images/cool-background.svg");
+}
+
+
+.vaalmi{
+  width: 70%;
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: lightblue;
+}
+
+li:nth-child(even) {
+  background-color: lightblue;
+}
+
+
+
+
+/*   HOME PGE CCCS     */
+
+#nav {
+
+  height: 20em;
+  line-height: 2em;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+li {
+  border-top: 1px solid #ccc;
+}
+
+ul ul {
+  text-indent: 1em;
+}
+
+ul ul ul {
+  text-indent: 2em;
+}
+
+.bigger{
+  height: 100px;
+  width: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.list {
+  text-align: center;
+  margin: auto;
+}
+
+.row{
+  text-align: center;
+  margin: auto;
+}
+.col-md-8{
+  text-align: center;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.col-md-6{
+  text-align: center;
+  margin: auto;
+}
+
+.list-group{
+  width: 50%;
+  margin: auto;
+}
+.labelToLeft{
+  text-align: left;
+}
+
+#searchBar{
+  width: 50%;
+  margin: auto;
+}
+
+#taskDescription {
+  text-align: center;
+}
+
+#goleft {
+  text-align: left;
+}
+
+
+.colorise{
+  background-color: antiquewhite;
+}
+
+.badge{
+  background-color: #FF4081;
+  color: #fff !important;
+}
+
+.badge-warning{
+  background-color: #FF4081;
+  color: #fff !important;
+}
+
+#searchBar{
+  padding-right: 5px;
+}
+
+
+
+
+.paddingtop{
+  padding-top: 5px;
+}
+
+
+
+body {
+  overflow-x: hidden;
+  color: #fff
+}
+
+p {
+  font-size: 14px
+}
+
+.container-fluid {
+  background-color: cadetblue;
+
+}
+
+.paddingtop{
+  padding-top: 20px;
+}
+
+.paddingbottom{
+  padding-bottom: 30px;
+}
+
+.top-part {
+  background-color: antiquewhite;
+}
+
+.center-content {
+  margin-top: 120px;
+  margin-bottom: 120px
+}
+
+.btn-pink {
+  border-radius: 0;
+  background-color: #FF4081;
+  color: #fff !important;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.btn-pink:hover {
+  background-color: #F50057
+}
+
+.line {
+  border-top: 1px solid #7B1FA2;
+  width: 90% !important
+}
+
+.fa-mobile {
+  font-size: 20px
+}
+
+#contact {
+  font-size: 15px
+}
+
+.grey-text {
+  color: lightgrey
+}
+
+

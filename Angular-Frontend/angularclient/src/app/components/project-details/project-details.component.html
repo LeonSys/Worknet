@@ -1,0 +1,117 @@
+
+
+
+<div class="colorise padding">
+  <div class="container colorise">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center lh-1 mb-2">
+        <h6 class="fw-bold"> {{currentProject.name}} Project</h6> <span class="fw-normal">{{today}}</span>
+      </div>
+      <div class="d-flex justify-content-end"> <span>Manager of this project:</span> <strong>{{currentProject.manager}} </strong></div>
+      <div class="row">
+        <div class="col-md-10">
+          <ul class="list-group" *ngFor="let task of tasks; let i = index">
+            <li
+              class="list-group-item makesmaller"
+              *ngIf="!task.projectNumber"
+
+              [class.active]="i == currentIndex"
+              (click)="setActiveTask(task, i)"
+            >
+              {{ task.name }}
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf= clicked class="paddingright ">
+          <button class="uniquebutton smallerButton " (click)="addTaskToThisProject()"> Add</button>
+        </div>
+        <div *ngIf= clicked class="">
+
+          <button class="uniquebutton smallerButton" routerLink="/tasks/{{currentTask.id}}"> Inspect</button>
+        </div>
+
+        <table class="mt-4 table table-bordered">
+
+
+          <thead class="bg-dark text-white">
+
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+            <th scope="col">Assigned User</th>
+            <th scope="col">Deadline</th>
+          </tr>
+          </thead>
+          <ng-container *ngFor="let task of tasks; let i = index">
+          <tbody  >
+          <tr  *ngIf="task.projectNumber == currentProject.id">
+            <th scope="row" class="backgroundColorBlack"> <a class="textColor" routerLink="/tasks/{{task.id}}">{{task.name}}</a></th>
+            <td class="backgroundColorBlack">{{task.priority}}</td>
+            <td class="backgroundColorBlack">{{task.status}}</td>
+            <td class="backgroundColorBlack">{{task.assignedUser}}</td>
+            <td class="backgroundColorBlack">{{task.normalDeadLineFormat}}</td>
+          </tr>
+          </tbody>
+          </ng-container>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-md-4"> <br> <span class="fw-bold">Project ID : {{currentProject.id}}</span> </div>
+        <div class="border col-md-8">
+          <div class="d-flex flex-column"> <span>Project Description:</span> <textarea readonly rows="7">{{currentProject.description}}</textarea> </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <div class="d-flex flex-column mt-2"> <span class="fw-bolder">WorkNet Service</span> <span class="mt-4">Authorized by ..///</span> </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div>
+      <div class="row container-fluid  padding">
+        <div class="line mb-3 mx-auto"></div>
+        <div class="d-md-flex px-5 justify-content-around bd-highlight col-md-12 pt-5 pb-5 mb-3">
+          <div class="p-2 flex-fill bd-highlight mb-5 mb-md-0">
+            <h3>WorkNet</h3> <small>Copyright &copy 2021</small>
+          </div>
+          <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+            <h5 class="places">Users</h5>
+            <p class="mb-0">Secured user data</p>
+            <p class="mb-0">Tracking user's actions</p>
+            <p class="mb-0">Profile management</p>
+          </div>
+          <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+            <h5 class="places">Task</h5>
+            <p class="mb-0">To-do list centralised</p>
+            <p class="mb-0">Easy to follow</p>
+            <p class="mb-0">Precise</p>
+          </div>
+          <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+            <h5 class="places">Projects</h5>
+            <p class="mb-0">Managing tasks</p>
+            <p class="mb-0">Better overall view</p>
+            <p class="mb-0">Makes things faster</p>
+          </div>
+          <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+            <h5 class="places">Timesheets</h5>
+            <p class="mb-0">Track worked hours</p>
+            <p class="mb-0">Task&User specific</p>
+            <p class="mb-0">Gives a better overview</p>
+          </div>
+          <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+            <h5 class="places">Token Based Authentication</h5>
+            <p class="mb-0">More secure</p>
+          </div>
+        </div>
+        <div class="line mb-3 mx-auto"></div>
+      </div>
+      <div class="row bottom-part">
+
+      </div>
+</div>
+

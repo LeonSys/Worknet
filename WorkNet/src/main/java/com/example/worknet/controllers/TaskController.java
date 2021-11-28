@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -57,16 +58,26 @@ public class TaskController {
 
     @PostMapping("/tasks")
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate= formatter.format(task.getDeadline());
+
         try {
 
             Task _task = taskRepository
                     .save(Task.builder()
-                            .description(task.getDescription())
-                            .priority(task.getPriority())
-                            .status(task.getStatus())
-                            .assignedUser(task.getAssignedUser())
                             .name(task.getName())
+                            .priority(task.getPriority())
+                            .description(task.getDescription())
+
+                            .status(task.getStatus())
+                            .deadline(task.getDeadline())
+                            .assignedUser(task.getAssignedUser())
+
+
+                           // .projectNumber(task.getProjectNumber())
+                            .normalDeadLineFormat(strDate)
                             .build());
+
 
             return new ResponseEntity<>(_task, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -95,28 +106,6 @@ public class TaskController {
         }
     }
 
-
-    ///BOOLEAN ALAPJÁN TALÁL DE MÉG NINCS BOOLEAN PROPERTYJE A TASKNAK
-
-    /*
-    @GetMapping("/tutorials/published")
-    public ResponseEntity<List<Tutorial>> findByPublished() {
-        try {
-            List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
-
-            if (tutorials.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity<>(tutorials, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-     */
-
-    //////////
-        // TASK modiify egyenlőre had pihenjen
-    /////////
    @PutMapping("/tasks/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable("id") long id, @RequestBody Task task) {
         Optional<Task> taskData = taskRepository.findById(id);
@@ -126,15 +115,10 @@ public class TaskController {
             _task.setName(task.getName());
             _task.setDescription(task.getDescription());
             _task.setPriority(task.getPriority());
+            _task.setProjectNumber(task.getProjectNumber());
             return new ResponseEntity<>(taskRepository.save(_task), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    //////////
-    // TASK modiify egyenlőre had pihenjen
-    /////////
-
-
 }

@@ -1,15 +1,14 @@
 package com.example.worknet.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,28 +23,23 @@ public class Project {
     private long id;
 
 
-
-    @Column(nullable = true)
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "project_tasks",
-            joinColumns = @JoinColumn(name = "projects_id"),
-            inverseJoinColumns = @JoinColumn(name = "tasks_id"))
-    private Set<Task> tasks = new HashSet<>();
-
-
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "project_users",
-            joinColumns = @JoinColumn(name = "projects_id"),
-            inverseJoinColumns = @JoinColumn(name = "users_id"))
-    private Set<User> users = new HashSet<>();
-
     @Column
     private String name;
 
     @Column
     private String description;
 
+    @Column
+    private String manager;
+
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
 
     public String getDescription() {
         return description;
@@ -63,21 +57,7 @@ public class Project {
         this.id = id;
     }
 
-    public Set<Task> getTasks() {
-        return tasks;
-    }
 
-    public void setTasks(Set<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
 
     public String getName() {
         return name;

@@ -1,26 +1,125 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
-    <h3>
-      <strong>{{ currentUser.username }}</strong> Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Token:</strong>
-    {{ currentUser.accessToken.substring(0, 20) }} ...
-    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-  </p>
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
+<div class="colorise">
+<div class="row py-5 px-4"  >
+  <div class="col-md-5 mx-auto">
+    <!-- Profile widget -->
+    <div class="bg-white shadow rounded overflow-hidden">
+      <div class="px-4 pt-0 pb-4 cover">
+        <div class="media align-items-end profile-head">
+          <div class="profile mr-3"><img src="assets/images/user-icon-jpg-28.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a routerLink="/addTimesheet" class="btn btn-outline-dark btn-sm btn-block">Add a Timesheet</a></div>
+          <div class="media-body mb-5 text-white">
+            <h4 class="mt-0 mb-0">{{currentUser.name}}</h4>
+            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>{{currentUser.city}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-light p-4 d-flex justify-content-end text-center">
+        <ul class="list-inline mb-0">
+
+        </ul>
+      </div>
+      <div class="px-4 py-3">
+        <div class="p-4 rounded shadow-sm bg-light">
+          <p class="font-italic mb-0">E-mail:
+            {{currentUser.email}} </p>
+          <p class="font-italic mb-0">PhoneNumber:
+            {{currentUser.phoneNumber}}</p>
+          <p class="font-italic mb-0">Position:
+            {{currentUser.position}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="paddingtop paddingbottom">
+      <button (click)="getTheCurrentUserName()" class="btn-pink btn">
+        Show/Hide Tasks
+      </button>
+    </div>
+    <div *ngIf="showtasks">
+      <ul class="list-group" *ngFor="let task of tasks">
+        <li
+
+          *ngIf="task.assignedUser === userRealName"
+        >
+          <a routerLink="/tasks/{{task.id}}">
+          {{ task.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="vaalmi">
+<div class="vaalmi">
+
+  <table >
+
+    <tr >
+      <th>Date</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Task</th>
+    </tr>
+    <ng-container *ngFor="let timesheet of timesheets;">
+    <tr   *ngIf="timesheet.userIdentificator === currentUser.id">
+      <td>{{timesheet.normalDateFormat}}</td>
+      <td>{{timesheet.start}}</td>
+      <td>{{timesheet.end}}</td>
+      <td>{{timesheet.occupiedTask}}</td>
+    </tr>
+    </ng-container>
+  </table>
+
 </div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="row container-fluid paddingtop">
+  <div class="line mb-3 mx-auto"></div>
+  <div class="d-md-flex px-5 justify-content-around bd-highlight col-md-12 pt-5 pb-5 mb-3">
+    <div class="p-2 flex-fill bd-highlight mb-5 mb-md-0">
+      <h3>WorkNet</h3> <small>Copyright &copy 2021</small>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Users</h5>
+      <p class="mb-0">Secured user data</p>
+      <p class="mb-0">Tracking user's actions</p>
+      <p class="mb-0">Profile management</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Task</h5>
+      <p class="mb-0">To-do list centralised</p>
+      <p class="mb-0">Easy to follow</p>
+      <p class="mb-0">Precise</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Projects</h5>
+      <p class="mb-0">Managing tasks</p>
+      <p class="mb-0">Better overall view</p>
+      <p class="mb-0">Makes things faster</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Timesheets</h5>
+      <p class="mb-0">Track worked hours</p>
+      <p class="mb-0">Task&User specific</p>
+      <p class="mb-0">Gives a better overview</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Token Based Authentication</h5>
+      <p class="mb-0">More secure</p>
+    </div>
+  </div>
+  <div class="line mb-3 mx-auto"></div>
+</div>
+
 
 <ng-template #loggedOut>
   Please login.
 </ng-template>
+

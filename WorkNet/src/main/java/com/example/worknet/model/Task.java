@@ -2,6 +2,7 @@ package com.example.worknet.model;
 
 import com.example.worknet.validation.annotation.ValidEmail;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +19,7 @@ import java.util.Set;
 
 
 @NoArgsConstructor
-//@AllArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 @Entity
@@ -44,7 +45,7 @@ public class Task {
     private Date creationDate;*/
 
     @NotBlank
-    @Size(max = 200)
+    @Size(max = 1000)
     private String description;
 
     @Size(max = 20)
@@ -54,6 +55,11 @@ public class Task {
     private Date deadline;
 
     private String assignedUser;
+
+    @Column
+    private String normalDeadLineFormat;
+
+    private  int projectNumber;
 
     public Task(long id, String name, String priority, String description, String status, Date deadline, String assignedUser) {
         this.id = id;

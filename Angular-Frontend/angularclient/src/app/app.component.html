@@ -1,55 +1,66 @@
 
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">WorkNet</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="addProject">Create project</a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="addTask">Create task</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="addTask">Create task</a>
-      </li>
-     <!---  <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li> ---->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a href="#" class="navbar-brand">WorkNet</a>
+  <ul class="navbar-nav mr-auto" routerLinkActive="active">
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a href="/admin" class="nav-link" routerLink="addProject">Create project</a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a href="/admin" class="nav-link" routerLink="addTask">Create task</a>
+    </li>
+    <li class="nav-item" *ngIf="showModeratorBoard">
+      <a href="/mod" class="nav-link" routerLink="addTask">Create task</a>
+    </li>
+    <li class="nav-item" *ngIf="showModeratorBoard">
+      <a href="/mod" class="nav-link" routerLink="addMeeting">Create meeting</a>
+    </li>
+    <li class="nav-item" *ngIf="showAdminBoard">
+      <a href="/admin" class="nav-link" routerLink="addMeeting">Create meeting</a>
+    </li>
 
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a routerLink="listOfTheUsers" class="nav-link">List of Users</a>
-      </li>
+    <!---  <li class="nav-item">
+       <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+     </li> ---->
 
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a routerLink="listOfTheProjects" class="nav-link">List of projects</a>
-      </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="listOfTheUsers" class="nav-link">List of Users</a>
+    </li>
 
-      <li class="nav-item" *ngIf="isLoggedIn">
-        <a routerLink="tasks" class="nav-link">Tasks</a>
-      </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="listOfTheProjects" class="nav-link">List of projects</a>
+    </li>
 
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="tasks" class="nav-link">Tasks</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a routerLink="meetings" class="nav-link">Meetings</a>
+    </li>
 
 
-    <router-outlet></router-outlet>
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+    <li class="nav-item">
+      <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a href="/login" class="nav-link" routerLink="login">Login</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+    </li>
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</nav>
+
+
+<router-outlet></router-outlet>
 
 

@@ -19,5 +19,4 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     Boolean existsByname(String projectname);
 
     List<Project> findByNameContaining(String name);
-
 }

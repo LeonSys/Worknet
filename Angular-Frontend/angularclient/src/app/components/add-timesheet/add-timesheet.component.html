@@ -1,0 +1,103 @@
+<div class="colorise paddingtop">
+  <div class="submit-form">
+
+<div class="form-group">
+  <div *ngIf="!submitted">
+  <label class="datePickerLabel" for="creationDate">Date:</label>
+<input class="datePickerInput" type="date" id="creationDate" name="creationDate"
+       required
+       [(ngModel)]="timesheet.creationDate"
+       value="2018-07-22"
+       max="2022-12-31">
+  </div>
+</div>
+
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+<input class="form-control" name="start"  type="time" ng-model="datetime.time" [(ngModel)]="timesheet.start">
+    </div>
+  </div>
+</div>
+
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <input class="form-control" name="end" type="time" ng-model="datetime.time" [(ngModel)]="timesheet.end">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div *ngIf="!submitted">
+  <label for="occupiedTask">Occupied Task</label>
+  <select
+    type="text"
+    class="form-control"
+    id="occupiedTask"
+    [(ngModel)]="timesheet.occupiedTask"
+    name="occupiedTask"
+  >
+    <option [ngValue]="task.name" *ngFor="let task of tasks;  let i = index">{{task.name}}</option>
+
+  </select>
+  </div>
+</div>
+
+    <div *ngIf="!submitted" class="paddingtop paddingbottom">
+      <button (click)="saveTimesheet()" class="btn-pink btn-pink" >Submit</button>
+    </div>
+
+
+</div>
+</div>
+
+
+
+<div class="container-fluid paddingtop">
+  <div class="row">
+    <div class="line mb-3 mx-auto"></div>
+    <div class="d-md-flex px-5 justify-content-around bd-highlight col-md-12 pt-5 pb-5 mb-3">
+      <div class="p-2 flex-fill bd-highlight mb-5 mb-md-0">
+        <h3>WorkNet</h3> <small>Copyright &copy 2021</small>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Users</h5>
+        <p class="mb-0">Secured user data</p>
+        <p class="mb-0">Tracking user's actions</p>
+        <p class="mb-0">Profile management</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Task</h5>
+        <p class="mb-0">To-do list centralised</p>
+        <p class="mb-0">Easy to follow</p>
+        <p class="mb-0">Precise</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Projects</h5>
+        <p class="mb-0">Managing tasks</p>
+        <p class="mb-0">Better overall view</p>
+        <p class="mb-0">Makes things faster</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Timesheets</h5>
+        <p class="mb-0">Track worked hours</p>
+        <p class="mb-0">Task&User specific</p>
+        <p class="mb-0">Gives a better overview</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Token Based Authentication</h5>
+        <p class="mb-0">More secure</p>
+      </div>
+    </div>
+    <div class="line mb-3 mx-auto"></div>
+  </div>
+  <div class="row bottom-part">
+    <div class="d-lg-flex justify-content-between bd-highlight col-md-12 mb-5 px-5">
+    </div>
+    <div class="row bottom-part">
+      <div class="d-lg-flex justify-content-between bd-highlight col-md-12 mb-5 px-5">
+      </div>
+  </div>
+</div>
+

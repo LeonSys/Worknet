@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Validation from "./utils/Validation";
+
+
+
 
 @Component({
   selector: 'app-root',
@@ -13,8 +18,11 @@ export class AppComponent implements OnInit {
   showModeratorBoard = false;
   username?: string;
   name?: String
+  form?: FormGroup;
+  submitted = false;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -29,8 +37,9 @@ export class AppComponent implements OnInit {
       this.username = user.username;
       this.name = user.name;
     }
-  }
 
+
+  }
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();

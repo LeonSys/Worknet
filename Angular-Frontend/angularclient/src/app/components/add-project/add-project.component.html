@@ -1,7 +1,7 @@
-<div>
-  <div class="submit-form">
-    <div *ngIf="!submitted">
+<div class="colorise">
+  <div class="submit-form paddingtop colorise">
 
+    <div *ngIf="!submitted">
       <div class="form-group">
         <label for="name">Name</label>
         <input
@@ -14,27 +14,85 @@
         />
       </div>
 
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          required
-          [(ngModel)]="project.description"
-          name="description"
-        />
+          <div class="form-group paddingtop">
+            <label for="assignUser">Assign user</label>
+            <select
+              type="text"
+              class="form-control"
+              id="assignUser"
+              [(ngModel)]="project.manager"
+              name="assignUser"
+            >
+              <option [ngValue]="user.name" *ngFor="let user of users;  let i = index">{{user.name}}</option>
+
+            </select>
+          </div>
+
+
+
+          <div class="paddingtop">
+            <label>Description</label>
+            <textarea class="center" rows = "5" cols="40" name = "description" [(ngModel)]="project.description">
+            Enter details here...
+         </textarea>
+          </div>
+
+      <div class="paddingbottom paddingtop">
+          <button (click)="saveProject()" class="btn-pink btn">Submit</button>
       </div>
 
+          <div class="paddingtop" *ngIf="submitted">
+            <h4>Project was submitted successfully!</h4>
+          </div>
+        </div>
+
       </div>
-
-      <button (click)="saveProject()" class="btn btn-success">SUBMIT</button>
     </div>
 
-    <div *ngIf="submitted">
-      <h4>Project was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newProject()">Add</button>
+<div class="container-fluid paddingtop">
+<div class="row">
+  <div class="line mb-3 mx-auto"></div>
+  <div class="d-md-flex px-5 justify-content-around bd-highlight col-md-12 pt-5 pb-5 mb-3">
+    <div class="p-2 flex-fill bd-highlight mb-5 mb-md-0">
+      <h3>WorkNet</h3> <small>Copyright &copy 2021</small>
     </div>
-
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Users</h5>
+      <p class="mb-0">Secured user data</p>
+      <p class="mb-0">Tracking user's actions</p>
+      <p class="mb-0">Profile management</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Task</h5>
+      <p class="mb-0">To-do list centralised</p>
+      <p class="mb-0">Easy to follow</p>
+      <p class="mb-0">Precise</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Projects</h5>
+      <p class="mb-0">Managing tasks</p>
+      <p class="mb-0">Better overall view</p>
+      <p class="mb-0">Makes things faster</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Timesheets</h5>
+      <p class="mb-0">Track worked hours</p>
+      <p class="mb-0">Task&User specific</p>
+      <p class="mb-0">Gives a better overview</p>
+    </div>
+    <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+      <h5 class="places">Token Based Authentication</h5>
+      <p class="mb-0">More secure</p>
+    </div>
   </div>
-
+  <div class="line mb-3 mx-auto"></div>
+</div>
+<div class="row bottom-part">
+  <div class="d-lg-flex justify-content-between bd-highlight col-md-12 mb-5 px-5">
+    <div class="fa fa-facebook px-2"></div>
+    <div class="fa fa-linkedin px-2"></div>
+    <div class="fa fa-twitter px-2"></div>
+    <div class="fa fa-instagram px-2"></div>
+  </div>
+</div>
+</div>

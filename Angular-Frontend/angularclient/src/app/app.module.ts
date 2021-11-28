@@ -20,6 +20,16 @@ import { TasksListComponent } from './components/tasks-list/tasks-list.component
 import { UserListComponent } from './components/user-list/user-list.component';
 import { AddProjectComponent } from './components/add-project/add-project.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { UserDescriptionComponent } from './components/user-description/user-description.component';
+import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { AddTimesheetComponent } from './components/add-timesheet/add-timesheet.component';
+import { TimesheetListComponent } from './components/timesheet-list/timesheet-list.component';
+import {Timesheet} from "./models/timesheet.model";
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { InspectTaskComponent } from './components/inspect-task/inspect-task.component';
+import { MeetingListComponent } from './components/meeting-list/meeting-list.component';
+import { MeetingDetailsComponent } from './components/meeting-details/meeting-details.component';
+import { AddMeetingComponent } from './components/add-meeting/add-meeting.component';
 
 
 
@@ -38,7 +48,16 @@ import { ProjectListComponent } from './components/project-list/project-list.com
     TasksListComponent,
     UserListComponent,
     AddProjectComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    UserDescriptionComponent,
+    ProjectDetailsComponent,
+    AddTimesheetComponent,
+    TimesheetListComponent,
+    FileUploadComponent,
+    InspectTaskComponent,
+    MeetingListComponent,
+    MeetingDetailsComponent,
+    AddMeetingComponent
   ],
   imports: [
     BrowserModule,

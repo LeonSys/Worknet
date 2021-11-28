@@ -22,9 +22,12 @@ export class AddTaskComponent implements OnInit {
     status: '',
     assignedUser: '',
     name: '',
+    deadline: new Date()
   };
   submitted = false;
 
+  today = new Date();
+  todayInString = this.today.toISOString().split('T')[0];
   constructor(private taskService: TaskService,private  userService: UserService) { }
 
   //taskStatusOptions: Observable<TaskCategories>;
@@ -36,10 +39,11 @@ export class AddTaskComponent implements OnInit {
   saveTask(): void {
     const data = {
       name: this.task.name,
-      description: this.task.description,
       priority: this.task.priority,
       status: this.task.status,
-      assignedUser: this.task.assignedUser
+      description: this.task.description,
+      assignedUser: this.task.assignedUser,
+      deadline: this.task.deadline
     };
 
     this.taskService.create(data)
@@ -76,7 +80,8 @@ export class AddTaskComponent implements OnInit {
       description: '',
       priority: '',
       status: '',
-      assignedUser: ''
+      assignedUser: '',
+      deadline: new Date()
     };
   }
 

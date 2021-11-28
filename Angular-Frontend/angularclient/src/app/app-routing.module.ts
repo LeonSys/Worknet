@@ -14,6 +14,13 @@ import {TasksListComponent} from "./components/tasks-list/tasks-list.component";
 import {UserListComponent} from "./components/user-list/user-list.component";
 import {AddProjectComponent} from "./components/add-project/add-project.component";
 import {ProjectListComponent} from "./components/project-list/project-list.component";
+import {UserDescriptionComponent} from "./components/user-description/user-description.component";
+import {ProjectDetailsComponent} from "./components/project-details/project-details.component";
+import {AddTimesheetComponent} from "./components/add-timesheet/add-timesheet.component";
+import {FileUploadComponent} from "./components/file-upload/file-upload.component";
+import {AddMeetingComponent} from "./components/add-meeting/add-meeting.component";
+import {MeetingListComponent} from "./components/meeting-list/meeting-list.component";
+import {MeetingDetailsComponent} from "./components/meeting-details/meeting-details.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -29,6 +36,17 @@ const routes: Routes = [
   { path: 'addProject', component: AddProjectComponent },
   { path: 'listOfTheUsers', component: UserListComponent },
   { path: 'listOfTheProjects', component: ProjectListComponent },
+  { path: 'userDescription/:id', component: UserDescriptionComponent },
+  { path: 'projects/:id', component: ProjectDetailsComponent },
+  { path: 'addTimesheet', component: AddTimesheetComponent},
+  { path: 'fileUpload', component: FileUploadComponent},
+  { path: 'addMeeting', component: AddMeetingComponent},
+  { path: 'meetings', component: MeetingListComponent},
+  { path: 'meetings/:id', component: MeetingDetailsComponent },
+
+
+
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
 ];

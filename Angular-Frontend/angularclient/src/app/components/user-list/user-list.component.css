@@ -1,0 +1,153 @@
+
+#nav {
+
+  height: 20em;
+  line-height: 2em;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+li {
+  border-top: 1px solid #ccc;
+}
+
+ul ul {
+  text-indent: 1em;
+}
+
+ul ul ul {
+  text-indent: 2em;
+}
+
+
+
+
+
+.list {
+  text-align: center;
+  margin: auto;
+}
+
+.row{
+  text-align: center;
+  margin: auto;
+}
+.col-md-8{
+  text-align: center;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.col-md-6{
+  text-align: center;
+  margin: auto;
+}
+
+.list-group{
+  width: 50%;
+  margin: auto;
+}
+.labelToLeft{
+  text-align: left;
+}
+
+#searchBar{
+  width: 50%;
+  margin: auto;
+}
+
+#taskDescription {
+  text-align: center;
+}
+
+#goleft {
+  text-align: left;
+}
+
+
+.colorise{
+  background-color: antiquewhite;
+}
+
+.badge{
+  background-color: #FF4081;
+  color: #fff !important;
+}
+
+.badge-warning{
+  background-color: #FF4081;
+  color: #fff !important;
+}
+
+#searchBar{
+  padding-right: 5px;
+}
+
+
+
+
+.paddingtop{
+  padding-top: 5px;
+}
+
+
+
+body {
+  overflow-x: hidden;
+  color: #fff
+}
+
+p {
+  font-size: 14px
+}
+
+.container-fluid {
+  background-color: cadetblue;
+
+}
+
+.paddingtop{
+  padding-top: 20px;
+}
+
+.paddingbottom{
+  padding-bottom: 30px;
+}
+
+.top-part {
+  background-color: antiquewhite;
+}
+
+.center-content {
+  margin-top: 120px;
+  margin-bottom: 120px
+}
+
+.btn-pink {
+  border-radius: 0;
+  background-color: #FF4081;
+  color: #fff !important;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.btn-pink:hover {
+  background-color: #F50057
+}
+
+.line {
+  border-top: 1px solid #7B1FA2;
+  width: 90% !important
+}
+
+.fa-mobile {
+  font-size: 20px
+}
+
+#contact {
+  font-size: 15px
+}
+
+.grey-text {
+  color: lightgrey
+}

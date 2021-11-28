@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {Task} from "../../models/task.model";
 import {TaskService} from "../../_services/task.service";
 import {TokenStorageService} from "../../_services/token-storage.service";
+import {UserService} from "../../_services/user.service";
+import {async, Observable} from "rxjs";
+import {User} from "../../models/user.model";
+import {AngularWorkspace} from "@angular/cli/utilities/config";
 
 @Component({
   selector: 'app-tasks-list',
@@ -13,6 +17,9 @@ export class TasksListComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  userIdToNavigate = 0;
+
+  noUserAssigned = false;
 
 
 
@@ -20,11 +27,16 @@ export class TasksListComponent implements OnInit {
   currentTask: Task = {};
   currentIndex = -1;
   name = '';
+  users?: User[];
 
-  constructor(private taskService: TaskService, private tokenStorageService: TokenStorageService) { }
+  currentUser: User = {};
+  currentUserIndex = -1;
+
+  constructor(private taskService: TaskService, private tokenStorageService: TokenStorageService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.retrieveTasks();
+    this.retrieveUsers();
 
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
@@ -38,6 +50,37 @@ export class TasksListComponent implements OnInit {
       this.name = user.name;
     }
 
+  }
+
+
+  getTheIdOfTheTaskAssignedUser():number{
+    let assignedUserId: number = 0;
+
+    this.users?.forEach((user) => {
+      if(user.name === this.currentTask.assignedUser){
+        assignedUserId = user.id
+      } else {}
+
+    });
+      return assignedUserId;
+  }
+
+  setActiveUser(user: User, index: number): void {
+    this.currentUser = user;
+    this.currentUserIndex = index;
+  }
+
+
+
+  retrieveUsers(): void {
+    this.userService.getAll().subscribe(
+      data => {
+        this.users = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   retrieveTasks(): void {
@@ -61,6 +104,9 @@ export class TasksListComponent implements OnInit {
   setActiveTask(task: Task, index: number): void {
     this.currentTask = task;
     this.currentIndex = index;
+    if(task.assignedUser === "") {
+      this.noUserAssigned = true;
+    } else{this.noUserAssigned = false;}
   }
 
   removeAllTasks(): void {

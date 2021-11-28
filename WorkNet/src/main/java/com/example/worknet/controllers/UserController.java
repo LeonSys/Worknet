@@ -53,6 +53,7 @@ public class UserController {
         }
     }
 
+
     @DeleteMapping("/users/{id}")
     public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") long id) {
         try {
@@ -95,8 +96,10 @@ public class UserController {
 
         if (userData.isPresent()) {
             User _user = userData.get();
+            _user.setMeetingNumber(user.getMeetingNumber());
             _user.setName(user.getName());
             _user.setEmail(user.getEmail());
+            _user.setUsername(user.getUsername());
 
             return new ResponseEntity<>(userRepository.save(_user), HttpStatus.OK);
         } else {

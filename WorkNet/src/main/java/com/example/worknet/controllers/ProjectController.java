@@ -6,6 +6,7 @@ import com.example.worknet.model.Project;
 import com.example.worknet.model.Role;
 import com.example.worknet.model.Task;
 import com.example.worknet.repository.ProjectRepository;
+import com.example.worknet.repository.TaskRepository;
 import org.hibernate.mapping.Any;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,13 +15,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class ProjectController {
 
     @Autowired
     ProjectRepository projectRepository;
+
+    @Autowired
+    TaskRepository taskRepository;
 
 
     @GetMapping("/projects")
@@ -48,12 +51,11 @@ public class ProjectController {
     @PostMapping("/projects")
     public ResponseEntity<Project> createProject(@RequestBody Project project) {
         try {
-
-
             Project _project = projectRepository
                     .save(Project.builder()
                             .name(project.getName())
                             .description(project.getDescription())
+                            .manager(project.getManager())
                             .build());
 
             return new ResponseEntity<>(_project, HttpStatus.CREATED);

@@ -1,10 +1,8 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
+<div class="container-fluid mx-auto">
+  <div class="row justify-content-center top-part">
+    <div class="col-md-12">
+      <div class="card card-container" id="cardBox">
+
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -70,8 +68,8 @@
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+      <div class="btn-pink btn" id="loginBox">
+        <button class="btn-pink btn">Sign Up</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
@@ -81,6 +79,57 @@
 
     <div class="alert alert-success" *ngIf="isSuccessful">
       Your registration is successful!
+    </div>
+  </div>
+</div>
+
+
+
+
+  </div>
+  <div class="row">
+    <div class="line mb-3 mx-auto"></div>
+    <div class="d-md-flex px-5 justify-content-around bd-highlight col-md-12 pt-5 pb-5 mb-3">
+      <div class="p-2 flex-fill bd-highlight mb-5 mb-md-0">
+        <h3>WorkNet</h3> <small>Copyright &copy 2021</small>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Users</h5>
+        <p class="mb-0">Secured user data</p>
+        <p class="mb-0">Tracking user's actions</p>
+        <p class="mb-0">Profile management</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Task</h5>
+        <p class="mb-0">To-do list centralised</p>
+        <p class="mb-0">Easy to follow</p>
+        <p class="mb-0">Precise</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Projects</h5>
+        <p class="mb-0">Managing tasks</p>
+        <p class="mb-0">Better overall view</p>
+        <p class="mb-0">Makes things faster</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Timesheets</h5>
+        <p class="mb-0">Track worked hours</p>
+        <p class="mb-0">Task&User specific</p>
+        <p class="mb-0">Gives a better overview</p>
+      </div>
+      <div class="p-2 flex-fill bd-highlight mb-3 mb-md-0">
+        <h5 class="places">Token Based Authentication</h5>
+        <p class="mb-0">More secure</p>
+      </div>
+    </div>
+    <div class="line mb-3 mx-auto"></div>
+  </div>
+  <div class="row bottom-part">
+    <div class="d-lg-flex justify-content-between bd-highlight col-md-12 mb-5 px-5">
+      <div class="fa fa-facebook px-2"></div>
+      <div class="fa fa-linkedin px-2"></div>
+      <div class="fa fa-twitter px-2"></div>
+      <div class="fa fa-instagram px-2"></div>
     </div>
   </div>
 </div>

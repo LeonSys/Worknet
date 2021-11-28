@@ -10,5 +10,4 @@ public class TokenRefreshResponse {
         this.refreshToken = refreshToken;
     }
 
-    // getters and setters
 }

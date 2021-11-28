@@ -6,5 +6,6 @@ export class Project {
   name?: string;
   tasks?: Task[];
   description?: string;
+  manager?: string;
 
 }

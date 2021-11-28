@@ -32,22 +32,34 @@ public class Timesheet {
 
     @NotBlank
     @Size(max = 20)
-    private Hours end;
+    private String end;
 
     @NotBlank
     @Size(max = 20)
-    private Hours start;
+    private String start;
 
-    @NotBlank
-    @JsonIgnore
-    @Lob
+    @Column(nullable = true)
     private Date creationDate;
 
+    @Column(nullable = true)
+    private int userIdentificator;
+
+    @Column(nullable = true)
+    private String occupiedTask;
+
+    @Column
+    private String normalDateFormat;
+
+    public String getOccupiedTask() {
+        return occupiedTask;
+    }
+
+    public void setOccupiedTask(String occupiedTask) {
+        this.occupiedTask = occupiedTask;
+    }
 
 
-
-
-   /* @ManyToMany(fetch = FetchType.LAZY)
+/* @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
@@ -70,21 +82,6 @@ public class Timesheet {
         this.id = id;
     }
 
-    public Hours getEnd() {
-        return end;
-    }
-
-    public void setEnd(Hours end) {
-        this.end = end;
-    }
-
-    public Hours getStart() {
-        return start;
-    }
-
-    public void setStart(Hours start) {
-        this.start = start;
-    }
 
     public Date getCreationDate() {
         return creationDate;
@@ -92,5 +89,29 @@ public class Timesheet {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public int getUserIdentificator() {
+        return userIdentificator;
+    }
+
+    public void setUserIdentificator(int userIdentificator) {
+        this.userIdentificator = userIdentificator;
     }
 }

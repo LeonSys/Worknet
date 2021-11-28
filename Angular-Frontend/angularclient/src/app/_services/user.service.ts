@@ -14,6 +14,20 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  findByName(name: any): Observable<User[]> {
+    return this.http.get<User[]>(`${API_LIST_URL}?name=${name}`);
+  }
+  get(id: any): Observable<User> {
+    return this.http.get(`${API_LIST_URL}/${id}`);
+  }
+  getAll(): Observable<User[]> {
+    return this.http.get<User[]>(API_LIST_URL);
+  }
+  create(data: any): Observable<any> {
+    return this.http.post(API_LIST_URL, data);
+  }
+
+
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
@@ -31,17 +45,8 @@ export class UserService {
   }
 
 
-  getAll(): Observable<User[]> {
-    return this.http.get<User[]>(API_LIST_URL);
-  }
 
-  get(id: any): Observable<User> {
-    return this.http.get(`${API_LIST_URL}/${id}`);
-  }
 
-  create(data: any): Observable<any> {
-    return this.http.post(API_LIST_URL, data);
-  }
 
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${API_LIST_URL}/${id}`, data);
@@ -58,9 +63,7 @@ export class UserService {
   // findByName(name: any): Observable<Task[]> {
   //   return this.http.get<Task[]>(`${baseUrl}`);
   // }
-  findByName(name: any): Observable<User[]> {
-    return this.http.get<User[]>(`${API_LIST_URL}?name=${name}`);
-  }
+
 
 
 
